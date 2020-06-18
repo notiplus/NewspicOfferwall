@@ -1,7 +1,6 @@
 package kr.newspic.offerwall.sample
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kr.newspic.offerwall.NewspicOfferwall

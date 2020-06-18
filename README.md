@@ -9,7 +9,7 @@
 
 ### STEP 1
 
-[[NewspicOfferwall-1.1.aar]](https://github.com/notiplus/NewspicOfferwall/raw/master/app/libs/NewspicOfferwall-1.1.aar) aar 파일을 `app/libs/` 폴더에 추가
+[[NewspicOfferwall-1.1.aar]](https://github.com/notiplus/NewspicOfferwall/raw/master/app/libs/NewspicOfferwall-1.1.aar) 파일을 `app/libs/` 폴더에 추가
 
 <br/>
 
@@ -57,7 +57,43 @@ dependencies {
 ### 데모
 
 ``` kotlin
-offerwall_open.setOnClickListener {
+offerwallOpenButton.setOnClickListener {
+
+    NewspicOfferwall.setTestMode(true)
+
+    parameters["userId"] = userId
+    NewspicOfferwall.setParameters(parameters)
+
+    NewspicOfferwall.openOfferwall(this)
+}
+```
+
+<br/>
+
+### 미지원 버전에 따른 예외처리
+
+Android v4.4(API 19) 이하의 버전에서의 동작 추가를 위한 데모입니다
+
+#### 미지원 단말기에서 UI 숨김처리
+```kotlin
+if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+    // TODO 
+    offerwallOpenButton.visibility = View.GONE
+} else {
+    offerwallOpenButton.visibility = View.VISIBLE
+}
+```
+
+<br/>
+
+#### 미지원 단말기에서 메시지로 안내
+
+```kotlin
+offerwallOpenButton.setOnClickListener {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+        Toast.makeText(this, "해당 단말기에서는 이용할 수 없습니다", Toast.LENGTH_SHORT).show()
+        return@setOnClickListener 
+    }
 
     NewspicOfferwall.setTestMode(true)
 
