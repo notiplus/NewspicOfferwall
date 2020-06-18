@@ -1,11 +1,20 @@
-## 뉴스픽 오퍼월 연동
+# 뉴스픽 오퍼월 SDK
 
-최신 SDK 다운로드 [[NewspicOfferwall-1.1.aar]](https://github.com/notiplus/NewspicOfferwall/raw/master/app/libs/NewspicOfferwall-1.1.aar)
+> 뉴스픽 오퍼월 SDK는 Android v4.4(API 19) 이상의 버전에서 동작합니다. </br>
+> 하위 버전에서는 오퍼월 액티비티로 진입되지 않습니다. </br>
 
-aar 파일을 `app/libs/` 폴더에 추가
+## 연동방법
 
-디펜던시 주입을 위해 `app/build.gradle` 파일 수정
-```
+### STEP 1
+
+[[NewspicOfferwall-1.1.aar]](https://github.com/notiplus/NewspicOfferwall/raw/master/app/libs/NewspicOfferwall-1.1.aar) aar 파일을 `app/libs/` 폴더에 추가
+
+
+### STEP 2
+
+종송석 추가 `Gradle Scripts/build.gradle (Module:app)`
+
+```gradle
 repositories {
     flatDir {
         dirs 'libs'
@@ -17,9 +26,33 @@ dependencies {
 }
 ```
 
-오퍼월 실행
+## 오퍼월 실행
+
+### 테스트 파라미터 지정
+
+`NewspicOfferwall.setTestMode(testMode: Boolean)`
+
+### 포스트백 파라미터 지정
+
+`NewspicOfferwall.setParameters(parameters: Map <String, String>)` 
+
+### 오퍼월 액티비티 진입
+
+`NewspicOfferwall.openOfferwall(context: Context)`
+
+> 뉴스픽 오퍼월 SDK는 Android v4.4(API 19) 이상의 버전에서 동작합니다. </br>
+> 하위 버전에서는 오퍼월 액티비티로 진입되지 않습니다. </br>
+
+### 데모
+
 ``` kotlin
-NewspicOfferwall.setTestMode(testMode: Boolean)                     // 테스트 빌드
-NewspicOfferwall.setParameters(parameters: Map <String, String>)    // 포스트백으로 전달받을 파라미터 설정
-NewspicOfferwall.openOfferwall(context: Context)
+offerwall_open.setOnClickListener {
+
+    NewspicOfferwall.setTestMode(true)
+
+    parameters["userId"] = userId
+    NewspicOfferwall.setParameters(parameters)
+
+    NewspicOfferwall.openOfferwall(this)
+}
 ```

@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
             val userId = et_user_id.text.toString()
             val parameters = HashMap<String, String>()
-            parameters["useId"] = userId
+            parameters["userId"] = userId
 
             // 포스트백으로 전달받을 파라미터 설정
             NewspicOfferwall.setParameters(parameters)
