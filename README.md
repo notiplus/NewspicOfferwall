@@ -15,7 +15,7 @@
 
 ### STEP 2
 
-종송석 추가 `Gradle Scripts/build.gradle (Module:app)`
+종속성 추가 `Gradle Scripts/build.gradle (Module:app)`
 
 ```gradle
 repositories {
