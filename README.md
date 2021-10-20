@@ -9,7 +9,7 @@
 
 ### STEP 1
 
-[[NewspicOfferwall-1.2.aar]](https://github.com/notiplus/NewspicOfferwall/raw/master/app/libs/NewspicOfferwall-1.2.aar) 파일을 `app/libs/` 폴더에 추가
+[[NewspicOfferwall-1.3.aar]](https://github.com/notiplus/NewspicOfferwall/raw/master/app/libs/NewspicOfferwall-1.3.aar) 파일을 `app/libs/` 폴더에 추가
 
 <br/>
 
@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    api(name: 'NewspicOfferwall-1.2', ext: 'aar')
+    api(name: 'NewspicOfferwall-1.3', ext: 'aar')
 }
 ```
 
