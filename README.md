@@ -5,6 +5,14 @@
 
 <br/><br/>
 
+## 변경사항
+
+### 1.4
+
+[[NewspicOfferwall-1.4.aar]](https://github.com/notiplus/NewspicOfferwall/raw/master/app/libs/NewspicOfferwall-1.4.aar)
+
+targetSdkVersion >= 31 대응을 위하여 SDK내에서 사용하는 모든 Activity에 `android:exported=true` 속성이 추가되었습니다.
+
 ## 연동방법
 
 ### STEP 1
